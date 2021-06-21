@@ -19,7 +19,7 @@ export function Navbar () {
           <NavLink to='/playlists' activeClassName='active'>
             Inicio
           </NavLink>
-          <NavLink to='/' activeClassName='active'>
+          <NavLink to='/favorites' activeClassName='active'>
             Favoritos
           </NavLink>
           <NavLink to='/' activeClassName='active'>

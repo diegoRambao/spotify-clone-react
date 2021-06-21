@@ -1,8 +1,10 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch } from 'react-router-dom'
 import { Favorites } from 'components/pages/Favorites'
 import { Login } from 'components/pages/Login'
 import { PlayList } from 'components/pages/PlayList'
 import { PlayLists } from 'components/pages/PlayLists'
+import { PrivateRoute } from 'routes/PrivateRoute'
+import { PublicRoute } from 'routes/PublicRoute'
 
 // URLS
 
@@ -15,11 +17,11 @@ export function App () {
     <>
       <Router>
         <Switch>
-          <Route exact path='/' component={Login} />
-          <Route exact path='/favorites' component={Favorites} />
-          <Route exact path='/login' component={Login} />
-          <Route exact path='/playlist' component={PlayList} />
-          <Route exact path='/playlists' component={PlayLists} />
+          <PrivateRoute exact path='/favorites' component={Favorites} />
+          <PrivateRoute exact path='/playlist' component={PlayList} />
+          <PrivateRoute exact path='/playlists' component={PlayLists} />
+          <PublicRoute restricted exact path='/' component={Login} />
+          <PublicRoute restricted exact path='/login' component={Login} />
         </Switch>
       </Router>
     </>

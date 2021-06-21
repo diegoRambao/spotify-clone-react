@@ -16,21 +16,21 @@ export function ListOfSongs ({ songs }) {
         </TableRow>
       </TableHead>
       <TableBody>
-        {songs?.map((songs, index) => (
+        {songs?.map((song, index) => (
           <TableRow key={index}>
             <td className='index'>{index + 1}</td>
             <td className='title'>
               <Cover
-                img={songs.img}
-                subtitle={songs.singer}
-                title={songs.title}
+                img={song.img}
+                subtitle={song.singer}
+                title={song.title}
               />
             </td>
-            <td className='album'>Album 1</td>
-            <td className='date'>2002/02/02</td>
+            <td className='album'>{song.album}</td>
+            <td className='date'>{song.addedAt}</td>
             <td className='duration'>
               <MdFavorite color={colors.primary} width='2em' height='2em' />
-              <span style={{ marginLeft: '.5rem' }}>4 min</span>
+              <span style={{ marginLeft: '.5rem' }}>{song.duration}</span>
             </td>
           </TableRow>
         ))}
