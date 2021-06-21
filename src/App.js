@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Login } from 'components/pages/Login'
+import { PlayLists } from './components/pages/PlayLists'
 
-function App() {
+// URLS
+
+// https://developer.spotify.com/console/get-current-user-saved-tracks/ -> EndPoints Favoritos del usuario
+// https://developer.spotify.com/console/playlists/ -> EndPoints Lista de playlist del usuario
+// https://developer.spotify.com/console/get-playlist/ -> EndPoint todas las canciones de la playlist del usuario
+
+export function App () {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Router>
+        <Switch>
+          <Route exact path='/' component={Login} />
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/playlists' component={PlayLists} />
+        </Switch>
+      </Router>
+    </>
+  )
 }
-
-export default App;
