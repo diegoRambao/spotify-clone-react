@@ -1,21 +1,22 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { Catalogue } from 'components/templates/Catalogue'
 import { getPlaylistById } from 'client'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import playlistEmpty from 'assets/images/playlist-empty.png'
 import { AppLayout } from 'components/templates/AppLayout'
+import { SetPlaylist } from 'store/actions/playlist'
 
 export function PlayList () {
-  const [playlist, setPlaylist] = useState(null)
-  const { token } = useSelector(state => state.user)
+  const dispatch = useDispatch()
+  const { user: { token }, playlist: { playlist } } = useSelector(state => state)
   const { id } = useParams()
 
   useEffect(() => {
     getPlaylistById({ token, id }).then(({ data }) => {
-      setPlaylist(data)
+      dispatch(SetPlaylist(data))
     })
-  }, [token, id])
+  }, [token, id, dispatch])
 
   return (
     <AppLayout>

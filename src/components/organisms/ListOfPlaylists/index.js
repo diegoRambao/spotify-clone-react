@@ -1,22 +1,23 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { List, ListItem } from './style'
 import { CardPlaylist } from 'components/molecules/CardPlaylist'
 import { getPlaylists } from 'client'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { SetAllPlaylist } from 'store/actions/playlist'
 
 export function ListOfPlaylists () {
-  const [playslists, setPlayslists] = useState([])
-  const { token } = useSelector(state => state.user)
+  const dispatch = useDispatch()
+  const { user: { token }, playlist: { playlists } } = useSelector(state => state)
 
   useEffect(() => {
     getPlaylists({ token }).then(({ data: { items } }) => {
-      setPlayslists(items)
+      dispatch(SetAllPlaylist(items))
     })
-  }, [token])
+  }, [token, dispatch])
 
   return (
     <List>
-      {playslists.map(playlist => (
+      {playlists.map(playlist => (
         <ListItem key={playlist.id}>
           <CardPlaylist playlist={playlist} />
         </ListItem>
