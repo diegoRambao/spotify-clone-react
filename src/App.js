@@ -6,12 +6,6 @@ import { PlayLists } from 'components/pages/PlayLists'
 import { PrivateRoute } from 'routes/PrivateRoute'
 import { PublicRoute } from 'routes/PublicRoute'
 
-// URLS
-
-// https://developer.spotify.com/console/get-current-user-saved-tracks/ -> EndPoints Favoritos del usuario
-// https://developer.spotify.com/console/playlists/ -> EndPoints Lista de playlist del usuario
-// https://developer.spotify.com/console/get-playlist/ -> EndPoint todas las canciones de la playlist del usuario
-
 export function App () {
   return (
     <>

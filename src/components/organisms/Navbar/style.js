@@ -9,7 +9,13 @@ export const Nav = styled.nav`
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 10; 
+    z-index: 10;
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    @media screen and (min-width: 768px) {
+        font-size: 1rem;
+    }
 `
 
 export const NavContainer = styled.div`
@@ -48,7 +54,7 @@ export const NavLink = styled(Link)`
     color: ${colors.white};
     display: block;
     cursor: pointer;
-    font-size: 1.5rem;
+    
     text-decoration: none;
     font-weight: 700;
     animation-direction: normal;
@@ -79,7 +85,7 @@ export const NavBtn = styled.nav`
     margin-right: 24px;
 `
 
-export const NavBtnLink = styled(Link)`
+export const NavBtnLogout = styled.button`
     border-radius: 4px;
     background: ${colors.primary};
     padding: 10px 22px;
@@ -89,6 +95,8 @@ export const NavBtnLink = styled(Link)`
     cursor: 0;
     transition: all 0.2s ease-in-out;
     text-decoration: none;
+    cursor: pointer;
+    width: fit-content;
     font-weight: 700;
 
     &:hover {

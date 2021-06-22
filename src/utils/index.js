@@ -27,3 +27,9 @@ export const convertMilisecongsToMinutes = miliseconds => {
   const minutes = Math.ceil(miliseconds / 6000)
   return `${minutes}:${seconds}`
 }
+
+export const parseStringToJson = text => {
+  return JSON.parse(text)
+}
+
+export const firstLeetterToUpperCase = text => text.toString().charAt(0).toUpperCase()

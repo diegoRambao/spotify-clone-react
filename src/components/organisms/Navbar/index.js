@@ -1,9 +1,14 @@
 import { useState } from 'react'
-import { Nav, NavContainer, NavLink, Bars, NavMenu, NavBtn, NavBtnLink } from './style'
+import { Nav, NavContainer, NavLink, Bars, NavMenu, NavBtnLogout } from './style'
 import { Logo } from 'icons/Logo'
+import { useUser } from 'hooks/useUser'
+import { UserWidget } from 'components/molecules/UserWidget'
+import { Skeleton } from 'components/atoms/Skeleton'
+import { Box } from 'components/atoms/Box'
 
 export function Navbar () {
   const [clicked, setClicked] = useState(false)
+  const { logout, user } = useUser()
 
   const handleClick = () => {
     setClicked(!clicked)
@@ -23,14 +28,13 @@ export function Navbar () {
             <NavLink to='/favorites' activeClassName='active'>
               Favoritos
             </NavLink>
-            <NavLink to='/' activeClassName='active'>
-              Diego Rambao
-            </NavLink>
-            <NavBtn>
-              <NavBtnLink to='/'>
-                Cerrar Sesión
-              </NavBtnLink>
-            </NavBtn>
+            <Box>
+              {user === null && <Skeleton width='2rem' height='2rem' variant='circle' />}
+              {user !== null && <UserWidget name={user.name} img={user.image} />}
+            </Box>
+            <NavBtnLogout onClick={logout}>
+              Cerrar Sesión
+            </NavBtnLogout>
           </NavMenu>
           <Bars onClick={handleClick} />
         </NavContainer>
