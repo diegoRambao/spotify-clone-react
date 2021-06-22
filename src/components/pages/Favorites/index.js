@@ -1,24 +1,25 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { Catalogue } from 'components/templates/Catalogue'
 import favoriteImg from 'assets/images/favorite.png'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { getFavoriteSongs } from 'client'
 import { AppLayout } from 'components/templates/AppLayout'
+import { SetAllFavorite } from 'store/actions/favorite'
 
 export function Favorites () {
-  const [songs, setSongs] = useState([])
-  const { token } = useSelector(state => state.user)
+  const dispatch = useDispatch()
+  const { user: { token }, favorite: { songsFavorites } } = useSelector(state => state)
 
   useEffect(() => {
     getFavoriteSongs({ token }).then(({ data }) => {
       const { items } = data
-      setSongs(items)
+      dispatch(SetAllFavorite(items))
     })
-  }, [token])
+  }, [token, dispatch])
 
   return (
     <AppLayout>
-      <Catalogue imgMain={favoriteImg} title='Canciones que te gustan' lists={songs} />
+      <Catalogue imgMain={favoriteImg} title='Canciones que te gustan' lists={songsFavorites} />
     </AppLayout>
   )
 }
