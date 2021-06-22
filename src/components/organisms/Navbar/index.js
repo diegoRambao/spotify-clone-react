@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink } from './style'
+import { Nav, NavContainer, NavLink, Bars, NavMenu, NavBtn, NavBtnLink } from './style'
 import { Logo } from 'icons/Logo'
 
 export function Navbar () {
@@ -12,26 +12,28 @@ export function Navbar () {
   return (
     <>
       <Nav>
-        <NavLink to='/'>
-          <Logo width='120' />
-        </NavLink>
-        <NavMenu open={clicked}>
-          <NavLink to='/playlists' activeClassName='active'>
-            Inicio
+        <NavContainer className='container'>
+          <NavLink to='/'>
+            <Logo width='120' />
           </NavLink>
-          <NavLink to='/favorites' activeClassName='active'>
-            Favoritos
-          </NavLink>
-          <NavLink to='/' activeClassName='active'>
-            Diego Rambao
-          </NavLink>
-          <NavBtn>
-            <NavBtnLink to='/'>
-              Cerrar Sesión
-            </NavBtnLink>
-          </NavBtn>
-        </NavMenu>
-        <Bars onClick={handleClick} />
+          <NavMenu open={clicked}>
+            <NavLink to='/playlists' activeClassName='active'>
+              Inicio
+            </NavLink>
+            <NavLink to='/favorites' activeClassName='active'>
+              Favoritos
+            </NavLink>
+            <NavLink to='/' activeClassName='active'>
+              Diego Rambao
+            </NavLink>
+            <NavBtn>
+              <NavBtnLink to='/'>
+                Cerrar Sesión
+              </NavBtnLink>
+            </NavBtn>
+          </NavMenu>
+          <Bars onClick={handleClick} />
+        </NavContainer>
       </Nav>
     </>
   )

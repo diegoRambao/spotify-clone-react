@@ -3,6 +3,7 @@ import { Catalogue } from 'components/templates/Catalogue'
 import favoriteImg from 'assets/images/favorite.png'
 import { useSelector } from 'react-redux'
 import { getFavoriteSongs } from 'client'
+import { AppLayout } from 'components/templates/AppLayout'
 
 export function Favorites () {
   const [songs, setSongs] = useState([])
@@ -16,8 +17,8 @@ export function Favorites () {
   }, [token])
 
   return (
-    <>
+    <AppLayout>
       <Catalogue imgMain={favoriteImg} title='Canciones que te gustan' lists={songs} />
-    </>
+    </AppLayout>
   )
 }

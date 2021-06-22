@@ -6,11 +6,17 @@ import { colors } from 'consts/styles'
 export const Nav = styled.nav`
     background: ${colors.black};
     height: 10vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10; 
+`
+
+export const NavContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* padding: 0.5rem calc((100vw - 1000px) / 2); */
-    z-index: 10; 
+    height: 100%;
 `
 
 export const NavMenu = styled.div`
@@ -39,7 +45,7 @@ export const NavMenu = styled.div`
 `
 
 export const NavLink = styled(Link)`
-    color: ${colors.primary};
+    color: ${colors.white};
     display: block;
     cursor: pointer;
     font-size: 1.5rem;
@@ -55,10 +61,6 @@ export const NavLink = styled(Link)`
         display: flex;
         align-items: center;
     }
-
-    &.active {
-        color: ${colors.white}
-    }
 `
 
 export const Bars = styled(FaBars)`
@@ -69,28 +71,12 @@ export const Bars = styled(FaBars)`
     @media screen and (min-width: 768px) {
         display: none;
     }
-    /* display: none;
-    color: #FFF;
-
-    @media screen and (max-width: 768px) {
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        transform: translate(-100%, 75%);
-        font-size: 1.8rem;
-        cursor: pointer;
-    } */
 `
 
 export const NavBtn = styled.nav`
     display: flex;
     align-items: center;
     margin-right: 24px;
-
-    @media screen and (max-width: 768px) {
-        display: none;
-    }
 `
 
 export const NavBtnLink = styled(Link)`
@@ -103,10 +89,9 @@ export const NavBtnLink = styled(Link)`
     cursor: 0;
     transition: all 0.2s ease-in-out;
     text-decoration: none;
+    font-weight: 700;
 
     &:hover {
         transition: all 0.2s ease-in-out;
-        background: #fff;
-        color: #010606
     }
 `

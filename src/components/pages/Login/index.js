@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
+import { ButtonLink } from '../../atoms/ButtonLink'
+import { ContainerLogin } from './style'
 
 import { useUser } from 'hooks/useUser'
 
-import { ButtonLink } from '../../atoms/ButtonLink'
-import { ContainerLogin } from './style'
 import { Logo } from 'icons/Logo'
 import { loginUrl, getTokenFromUrl } from 'client'
 
@@ -24,7 +24,7 @@ export function Login () {
     <ContainerLogin>
       <div>
         <div style={{ marginBottom: '3.4rem' }}>
-          <Logo />
+          <Logo width='16rem' />
         </div>
         <ButtonLink href={loginUrl}>
           Iniciar Sesión

@@ -16,6 +16,11 @@ export const CardContent = styled.div`
     display: flex;
     align-items: center;
     gap: 1rem;
+
+    @media screen and (min-width: 768px) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 `
 
 export const CardImg = styled.img`
@@ -23,6 +28,11 @@ export const CardImg = styled.img`
     height: 50px;
     object-fit: contain;
     border-radius: 4px;
+
+    @media screen and (min-width: 768px) {
+        width: 100%;
+        height: auto;
+    }
 `
 
 export const CardBody = styled.div``
@@ -31,10 +41,18 @@ export const CardTitle = styled.h4`
     margin: 0;
     font-size: 1rem;
     margin-bottom: 5px;
+
+    @media screen and (min-width: 768px) {
+        font-size: 1.125rem;
+    }
 `
 
 export const CardSubtitle = styled.h6`
     margin: 0;
     font-weight: 400;
     font-size: .8rem;
+
+    @media screen and (min-width: 768px) {
+        font-size: .9rem;
+    }
 `

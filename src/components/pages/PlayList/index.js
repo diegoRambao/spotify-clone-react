@@ -4,6 +4,7 @@ import { Catalogue } from 'components/templates/Catalogue'
 import { getPlaylistById } from 'client'
 import { useSelector } from 'react-redux'
 import playlistEmpty from 'assets/images/playlist-empty.png'
+import { AppLayout } from 'components/templates/AppLayout'
 
 export function PlayList () {
   const [playlist, setPlaylist] = useState(null)
@@ -15,11 +16,14 @@ export function PlayList () {
       setPlaylist(data)
     })
   }, [token, id])
+
   return (
-    <Catalogue
-      imgMain={playlist?.images[0]?.url || playlistEmpty}
-      title={playlist?.name}
-      lists={playlist?.tracks.items}
-    />
+    <AppLayout>
+      <Catalogue
+        imgMain={playlist?.images[0]?.url || playlistEmpty}
+        title={playlist?.name}
+        lists={playlist?.tracks.items}
+      />
+    </AppLayout>
   )
 }

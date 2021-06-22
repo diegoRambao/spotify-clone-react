@@ -7,6 +7,10 @@ const TitleH1 = styled.h1`
     margin: 0;
     margin-top: ${props => props.mt};
     margin-bottom: ${props => props.mb};
+
+    @media only screen and (min-width: 768px) {
+      font-size: 3rem;
+    }
 `
 
 export function Title ({ children, mt = 0, mb = 0 }) {
