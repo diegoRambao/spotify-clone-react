@@ -11,7 +11,8 @@ const scopes = [
   'user-read-playback-state',
   'user-top-read',
   'user-modify-playback-state',
-  'user-library-read'
+  'user-library-read',
+  'playlist-read-private'
 ]
 
 export const getTokenFromUrl = () => {
@@ -27,6 +28,14 @@ export const getTokenFromUrl = () => {
 
 export const getFavoriteSongs = ({ token }) => {
   return axios.get(`${apiUrl}/me/tracks`, { headers: { Authorization: `Bearer ${token}` } })
+}
+
+export const getPlaylists = ({ token }) => {
+  return axios.get(`${apiUrl}/me/playlists`, { headers: { Authorization: `Bearer ${token}` } })
+}
+
+export const getPlaylistById = ({ token, id }) => {
+  return axios.get(`${apiUrl}/playlists/${id}`, { headers: { Authorization: `Bearer ${token}` } })
 }
 
 export const loginUrl = `${authEndpoint}?client_id=${clientId}&response_type=token&redirect_uri=${redirectUri}&scope=${scopes.join('%20')}&show_dialog=true`

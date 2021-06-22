@@ -9,14 +9,17 @@ import {
   SubTitlePlaylist,
   TitlePlaylist
 } from './style'
+import { formatterSongs } from 'utils'
 
-export function Catalogue ({ imgMain, title, subtitle, lists }) {
+export function Catalogue ({ imgMain, title, subtitle, lists = [] }) {
+  const songs = formatterSongs(lists)
   return (
     <>
       <Navbar />
       <Main>
         <div className='container'>
           <HeaderContainer>
+
             <ImgPlaylist
               src={imgMain}
               alt={title}
@@ -28,7 +31,7 @@ export function Catalogue ({ imgMain, title, subtitle, lists }) {
             </HeaderText>
           </HeaderContainer>
           <Box mt='2rem'>
-            <ListOfSongs songs={lists} />
+            <ListOfSongs songs={songs} />
           </Box>
         </div>
       </Main>

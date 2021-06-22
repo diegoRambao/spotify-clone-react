@@ -1,30 +1,25 @@
+import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import { Catalogue } from 'components/templates/Catalogue'
-
-const songs = [
-  {
-    title: 'SRK',
-    img: 'https://www.signos.fm/wp-content/uploads/2020/05/Zoe-SKR-1.jpg',
-    album: 'Album 1',
-    fecha: '2002/02/02',
-    duration: '4 min',
-    singer: 'Zoé'
-  },
-  {
-    title: 'NO Quise',
-    img: 'https://studiosol-a.akamaihd.net/uploadfile/letras/albuns/3/d/c/4/806591572957674.jpg',
-    album: 'Album 1',
-    fecha: '2002/02/02',
-    duration: '4 min',
-    singer: 'Josean Log'
-  }
-]
+import { getPlaylistById } from 'client'
+import { useSelector } from 'react-redux'
+import playlistEmpty from 'assets/images/playlist-empty.png'
 
 export function PlayList () {
+  const [playlist, setPlaylist] = useState(null)
+  const { token } = useSelector(state => state.user)
+  const { id } = useParams()
+
+  useEffect(() => {
+    getPlaylistById({ token, id }).then(({ data }) => {
+      setPlaylist(data)
+    })
+  }, [token, id])
   return (
     <Catalogue
-      imgMain='https://www.signos.fm/wp-content/uploads/2020/05/Zoe-SKR-1.jpg'
-      title='SKR'
-      lists={songs}
+      imgMain={playlist?.images[0]?.url || playlistEmpty}
+      title={playlist?.name}
+      lists={playlist?.tracks.items}
     />
   )
 }

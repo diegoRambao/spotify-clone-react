@@ -36,5 +36,5 @@ export const CardTitle = styled.h4`
 export const CardSubtitle = styled.h6`
     margin: 0;
     font-weight: 400;
-    font-size: .7rem;
+    font-size: .8rem;
 `

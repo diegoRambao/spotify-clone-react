@@ -3,7 +3,6 @@ import { Catalogue } from 'components/templates/Catalogue'
 import favoriteImg from 'assets/images/favorite.png'
 import { useSelector } from 'react-redux'
 import { getFavoriteSongs } from 'client'
-import { formatterSongs } from 'utils'
 
 export function Favorites () {
   const [songs, setSongs] = useState([])
@@ -12,7 +11,7 @@ export function Favorites () {
   useEffect(() => {
     getFavoriteSongs({ token }).then(({ data }) => {
       const { items } = data
-      setSongs(formatterSongs(items))
+      setSongs(items)
     })
   }, [token])
 

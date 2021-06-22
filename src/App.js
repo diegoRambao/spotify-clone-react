@@ -18,7 +18,7 @@ export function App () {
       <Router>
         <Switch>
           <PrivateRoute exact path='/favorites' component={Favorites} />
-          <PrivateRoute exact path='/playlist' component={PlayList} />
+          <PrivateRoute exact path='/playlist/:id' component={PlayList} />
           <PrivateRoute exact path='/playlists' component={PlayLists} />
           <PublicRoute restricted exact path='/' component={Login} />
           <PublicRoute restricted exact path='/login' component={Login} />
