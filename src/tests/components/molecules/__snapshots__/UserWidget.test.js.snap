@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UserWidget /> render content 1`] = `
+<styled.div>
+  <Avatar
+    alt="Sofia Herrera"
+    src="http://localhost/exmample.png"
+  />
+  <styled.span>
+    Sofia Herrera
+  </styled.span>
+</styled.div>
+`;

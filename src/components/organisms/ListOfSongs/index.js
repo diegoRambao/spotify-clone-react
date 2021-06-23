@@ -11,7 +11,7 @@ export function ListOfSongs ({ songs }) {
           <th>#</th>
           <th>Titulo</th>
           <th>Album</th>
-          <th>Fecha</th>
+          <th>Fecha incorporación</th>
           <th>Duración</th>
         </TableRow>
       </TableHead>

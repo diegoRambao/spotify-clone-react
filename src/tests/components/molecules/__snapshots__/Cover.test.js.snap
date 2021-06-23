@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Cover /> render content 1`] = `
+<styled.div>
+  <styled.img
+    alt="Titulo"
+    src="exmaple.png"
+  />
+  <div>
+    <styled.h3>
+      Titulo
+    </styled.h3>
+    <styled.h5>
+      Subtitle
+    </styled.h5>
+  </div>
+</styled.div>
+`;

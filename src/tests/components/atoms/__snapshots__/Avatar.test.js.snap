@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Avatar /> redner content 1`] = `
+<styled.div>
+  D
+</styled.div>
+`;
