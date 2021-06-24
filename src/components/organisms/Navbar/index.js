@@ -1,11 +1,12 @@
 import { useState } from 'react'
-import { Nav, NavContainer, NavLink, Bars, NavMenu, NavBtnLogout } from './style'
+import { Nav, NavContainer, NavLink, Bars, NavMenu } from './style'
 import { Logo } from 'icons/Logo'
 import { useUser } from 'hooks/useUser'
 import { UserWidget } from 'components/molecules/UserWidget'
 import { Skeleton } from 'components/atoms/Skeleton'
 import { Box } from 'components/atoms/Box'
 import { FiSearch } from 'react-icons/fi'
+import { Button } from 'components/atoms/Button'
 
 export function Navbar () {
   const [clicked, setClicked] = useState(false)
@@ -36,9 +37,9 @@ export function Navbar () {
               {user === null && <Skeleton width='2rem' height='2rem' variant='circle' />}
               {user !== null && <UserWidget name={user.name} img={user.image} />}
             </Box>
-            <NavBtnLogout onClick={logout}>
+            <Button onClick={logout}>
               Cerrar Sesión
-            </NavBtnLogout>
+            </Button>
           </NavMenu>
           <Bars onClick={handleClick} />
         </NavContainer>

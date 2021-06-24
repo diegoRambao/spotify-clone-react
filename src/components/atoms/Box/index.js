@@ -5,6 +5,6 @@ const Container = styled.div`
     padding-top: ${props => props.pt};
 `
 
-export function Box ({ children, mt, pt }) {
-  return <Container mt={mt} pt={pt}>{children}</Container>
+export function Box ({ children, mt, pt, className }) {
+  return <Container mt={mt} pt={pt} className={className}>{children}</Container>
 }

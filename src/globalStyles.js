@@ -68,4 +68,12 @@ export const GlobalStyle = createGlobalStyle`
     0% {opacity:0;}
     100% {opacity:1;}
   }
+
+  .d-flex {
+    display: flex;
+  }
+
+  .justify-content-center {
+    justify-content: center;
+  }
 `

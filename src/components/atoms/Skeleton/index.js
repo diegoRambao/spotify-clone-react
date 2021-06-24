@@ -8,15 +8,17 @@ const skeletonFrames = keyframes`
 
 const Container = styled.span`
   display: inline-block;
+  margin-bottom: 10px;
   height: 1em;
   position: relative;
   overflow: hidden;
   background-color: rgba(255, 255, 255, 0.13);
   width: ${props => props.width || '100%'};
-  height: ${props => props.height || '100%'};
+  height: ${props => props.height};
   border-radius: 0;
   border-radius: ${props => props.variant === 'circle' && '50%'};
   border-radius: ${props => props.variant === 'rect' && '2px'};
+  border-radius: ${props => props.variant === 'text' && '5px'};
 
   &::after {
     position: absolute;

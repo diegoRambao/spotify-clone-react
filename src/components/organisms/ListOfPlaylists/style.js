@@ -11,6 +11,10 @@ export const List = styled.ul`
         place-items: stretch;
         grid-column-gap: 2rem;
         grid-row-gap: 2rem;
+
+        &:first-child {
+            overflow: hidden !important;
+        }
     }
 `
 export const ListItem = styled.li`
