@@ -13,10 +13,4 @@ export function PrivateRoute ({ component: Component, ...rest }) {
       )}
     />
   )
-
-  // if (isLogged) {
-  //   return <Route {...rest}>{children}</Route>
-  // }
-
-  // return <Redirect to='/login' />
 }

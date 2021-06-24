@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
-import { ButtonLink } from '../../atoms/ButtonLink'
-import { ContainerLogin } from './style'
 
+import { ButtonLink } from 'components/atoms/ButtonLink'
+import { ContainerLogin } from './style'
 import { useUser } from 'hooks/useUser'
 
 import { Logo } from 'icons/Logo'

@@ -15,7 +15,7 @@ export const TableHead = styled.thead`
 `
 
 export const TableBody = styled.tbody`
-
+    width: 100%;
 `
 
 export const TableRow = styled.tr`

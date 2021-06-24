@@ -10,7 +10,7 @@ import {
 } from './style'
 import { formatterSongs } from 'utils'
 
-export function Catalogue ({ imgMain, title, lists = [] }) {
+export function Catalogue ({ imgMain, title, lists = [], handleViewMore, hasMore, total = 0 }) {
   const songs = formatterSongs(lists)
   return (
 
@@ -25,11 +25,11 @@ export function Catalogue ({ imgMain, title, lists = [] }) {
           <HeaderText>
             <p>PLAYLIST</p>
             <TitlePlaylist className='animate__fadeIn'>{title}</TitlePlaylist>
-            <SubTitlePlaylist className='animate__fadeIn'>{lists?.length || 0} Canciones</SubTitlePlaylist>
+            <SubTitlePlaylist className='animate__fadeIn'>{total} Canciones</SubTitlePlaylist>
           </HeaderText>
         </HeaderContainer>
         <Box mt='2rem'>
-          <ListOfSongs songs={songs} />
+          <ListOfSongs songs={songs} handleViewMore={handleViewMore} hasMore={hasMore} />
         </Box>
       </div>
     </Main>

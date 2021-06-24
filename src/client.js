@@ -28,8 +28,8 @@ export const getTokenFromUrl = () => {
     }, {})
 }
 
-export const getFavoriteSongs = ({ token }) => {
-  return axios.get(`${apiUrl}/me/tracks`, { headers: { Authorization: `Bearer ${token}` } })
+export const getFavoriteSongs = ({ token, limit = 20, offset }) => {
+  return axios.get(`${apiUrl}/me/tracks?limit=${limit}&offset=${offset}`, { headers: { Authorization: `Bearer ${token}` } })
 }
 
 export const getPlaylists = ({ token, limit = 20, offset }) => {
@@ -38,6 +38,10 @@ export const getPlaylists = ({ token, limit = 20, offset }) => {
 
 export const getPlaylistById = ({ token, id }) => {
   return axios.get(`${apiUrl}/playlists/${id}`, { headers: { Authorization: `Bearer ${token}` } })
+}
+
+export const getSongsByPlaylistId = ({ token, playlistId, limit = 20, offset = 0 }) => {
+  return axios.get(`${apiUrl}/playlists/${playlistId}/tracks/?limit=${limit}&offset=${offset}`, { headers: { Authorization: `Bearer ${token}` } })
 }
 
 export const getCurrentUser = ({ token }) => {

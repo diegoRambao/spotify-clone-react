@@ -7,7 +7,7 @@ const initialState = {
 export const favoriteReducer = (state = initialState, action) => {
   switch (action.type) {
     case SetAllFavorite:
-      return { ...state, songsFavorites: action.payload }
+      return { ...state, songsFavorites: [...state.songsFavorites, ...action.payload] }
     default:
       return state
   }

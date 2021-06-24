@@ -30,7 +30,7 @@ export function Navbar () {
             <NavLink to='/favorites' activeClassName='active'>
               Favoritos
             </NavLink>
-            <NavLink to='search'>
+            <NavLink to='/search'>
               <FiSearch />
             </NavLink>
             <Box>

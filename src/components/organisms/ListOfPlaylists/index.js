@@ -40,9 +40,7 @@ export function ListOfPlaylists () {
         {hasMore
           ? <Button onClick={() => fetchMoreData()}>Ver mas</Button>
           : <h3>¡LLegaste al final!</h3>}
-
       </Box>
-
     </>
   )
 }

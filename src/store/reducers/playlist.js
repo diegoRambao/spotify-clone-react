@@ -1,4 +1,4 @@
-import { SetAllPlaylist, SetPlaylist } from 'consts/actionTypes'
+import { SetAllPlaylist, SetPlaylist, SetSongsPlaylist, SetTotalSongsPlaylist } from 'consts/actionTypes'
 
 const initialState = {
   playlists: [],
@@ -11,6 +11,10 @@ export const playlistReducer = (state = initialState, action) => {
       return { ...state, playlists: [...state.playlists, ...action.payload] }
     case SetPlaylist:
       return { ...state, playlist: action.payload }
+    case SetSongsPlaylist:
+      return { ...state, playlist: { ...state.playlist, tracks: [...state.playlist.tracks, ...action.payload] } }
+    case SetTotalSongsPlaylist:
+      return { ...state, playlist: { ...state.playlist, total: action.payload } }
     default:
       return state
   }
