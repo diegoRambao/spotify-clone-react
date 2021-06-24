@@ -5,10 +5,8 @@ import { AppLayout } from 'components/templates/AppLayout'
 export function PlayLists () {
   return (
     <AppLayout>
-      <section className='container'>
-        <Title mt='1rem'>PlayLists</Title>
-        <ListOfPlaylists />
-      </section>
+      <Title mt='1rem'>PlayLists</Title>
+      <ListOfPlaylists />
     </AppLayout>
   )
 }

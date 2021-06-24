@@ -11,7 +11,11 @@ export function AppLayout ({ children }) {
       <header>
         <Navbar />
       </header>
-      <Main>{children}</Main>
+      <Main>
+        <section className='container'>
+          {children}
+        </section>
+      </Main>
     </>
   )
 }

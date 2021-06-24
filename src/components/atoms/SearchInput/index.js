@@ -12,7 +12,7 @@ export function SearchInput ({ onSubmit }) {
   }
 
   return (
-    <InputRoot>
+    <InputRoot className='animate__fadeIn'>
       <Icon />
       <TextField
         ref={textFieldEl}

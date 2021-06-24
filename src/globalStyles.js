@@ -73,7 +73,33 @@ export const GlobalStyle = createGlobalStyle`
     display: flex;
   }
 
+  .flex-column {
+    flex-direction: column;
+  }
+
+  .align-items-center {
+    align-items: center;
+  }
+
+  .align-items-end {
+    align-items: end ;
+  }
+
   .justify-content-center {
     justify-content: center;
   }
+
+  .justify-content-start {
+    justify-content: start;
+  }
+
+  .justify-content-end {
+    justify-content: end;
+  }
+
+  .justify-content-between {
+    justify-content: space-between;
+  }
+
+
 `
