@@ -31,6 +31,7 @@ export function useUser () {
 
   return {
     isLogged: token,
+    token,
     logout,
     setToken,
     user

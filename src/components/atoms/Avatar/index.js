@@ -5,6 +5,7 @@ export function Avatar ({ children, src, alt }) {
     <AvatarContainer>
       {children && children}
       {!children && <AvatarImage
+        loading='lazy'
         id='img'
         src={src}
         alt={alt}

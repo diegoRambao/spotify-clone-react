@@ -2,17 +2,25 @@ import dayjs from 'dayjs'
 
 export const formatterSong = (item) => {
   const { added_at: addedAt, track } = item
-  const { album: { images, name: albumName }, artists, name, id, duration_ms: durationMs } = track
-  const { name: singer } = artists[0]
+  const songBasicInfo = extractBasicInformationSong(track)
   const addedAtFormater = dayjs(addedAt).format('DD/MM/YYYY')
+
+  return {
+    addedAt: addedAtFormater,
+    ...songBasicInfo
+  }
+}
+
+export const extractBasicInformationSong = song => {
+  const { album: { images, name: albumName }, artists, name, id, duration_ms: durationMs } = song
+  const { name: singer } = artists[0]
   const time = dayjs(durationMs).format('m:ss')
 
   return {
     id,
-    addedAt: addedAtFormater,
-    title: name,
     album: albumName,
     img: images[0].url,
+    title: name,
     singer,
     duration: time
   }
@@ -20,6 +28,10 @@ export const formatterSong = (item) => {
 
 export const formatterSongs = (items) => items.length > 0
   ? items.map((item) => formatterSong(item))
+  : []
+
+export const formatterSongsSearch = (items) => items.length > 0
+  ? items.map((item) => extractBasicInformationSong(item))
   : []
 
 export const convertMilisecongsToMinutes = miliseconds => {

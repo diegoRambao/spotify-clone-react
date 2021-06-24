@@ -18,13 +18,14 @@ export function Catalogue ({ imgMain, title, lists = [] }) {
       <div className='container'>
         <HeaderContainer>
           <ImgPlaylist
+            className='animate__fadeIn'
             src={imgMain}
             alt={title}
           />
           <HeaderText>
             <p>PLAYLIST</p>
-            <TitlePlaylist>{title}</TitlePlaylist>
-            <SubTitlePlaylist>{lists?.length || 0} Canciones</SubTitlePlaylist>
+            <TitlePlaylist className='animate__fadeIn'>{title}</TitlePlaylist>
+            <SubTitlePlaylist className='animate__fadeIn'>{lists?.length || 0} Canciones</SubTitlePlaylist>
           </HeaderText>
         </HeaderContainer>
         <Box mt='2rem'>

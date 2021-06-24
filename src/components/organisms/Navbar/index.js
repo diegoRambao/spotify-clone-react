@@ -5,6 +5,7 @@ import { useUser } from 'hooks/useUser'
 import { UserWidget } from 'components/molecules/UserWidget'
 import { Skeleton } from 'components/atoms/Skeleton'
 import { Box } from 'components/atoms/Box'
+import { FiSearch } from 'react-icons/fi'
 
 export function Navbar () {
   const [clicked, setClicked] = useState(false)
@@ -27,6 +28,9 @@ export function Navbar () {
             </NavLink>
             <NavLink to='/favorites' activeClassName='active'>
               Favoritos
+            </NavLink>
+            <NavLink to='search'>
+              <FiSearch />
             </NavLink>
             <Box>
               {user === null && <Skeleton width='2rem' height='2rem' variant='circle' />}

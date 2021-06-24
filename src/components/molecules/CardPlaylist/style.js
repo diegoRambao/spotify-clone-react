@@ -9,6 +9,7 @@ export const Link = styled(Navigate)`
     display: block;
     background-color: ${colors.darkGrayLight};
     width: auto;
+    height: 90%;
     border-radius: 3px;
 `
 

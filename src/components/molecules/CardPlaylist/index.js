@@ -4,9 +4,10 @@ import playlistEmpty from 'assets/images/playlist-empty.png'
 export function CardPlaylist ({ playlist }) {
   const { id, name, tracks, images } = playlist
   return (
-    <Link to={`/playlist/${id}`}>
+    <Link to={`/playlist/${id}`} className='animate__fadeIn'>
       <CardContent>
         <CardImg
+          loading='lazy'
           src={images[0]?.url || playlistEmpty}
           alt='Poster de Karmadome'
         />

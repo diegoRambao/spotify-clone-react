@@ -18,6 +18,7 @@ export function ListOfPlaylists () {
   return (
     <List>
       {playlists.map(playlist => (
+
         <ListItem key={playlist.id}>
           <CardPlaylist playlist={playlist} />
         </ListItem>

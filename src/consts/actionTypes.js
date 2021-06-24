@@ -6,3 +6,5 @@ export const SetAllFavorite = '@favorites/SetAllFavorite'
 
 export const SetAllPlaylist = '@playlist/SetAllPlayList'
 export const SetPlaylist = '@playlist/SetPlaylist'
+
+export const setSongsSearch = '@search/SetSongsSearch'

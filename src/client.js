@@ -44,4 +44,8 @@ export const getCurrentUser = ({ token }) => {
   return axios.get(`${apiUrl}/me`, { headers: { Authorization: `Bearer ${token}` } })
 }
 
+export const getSearchSongs = ({ token, query, type = 'track' }) => {
+  return axios.get(`${apiUrl}/search?q=${query}&type=${type}`, { headers: { Authorization: `Bearer ${token}` } })
+}
+
 export const loginUrl = `${authEndpoint}?client_id=${clientId}&response_type=token&redirect_uri=${redirectUri}&scope=${scopes.join('%20')}&show_dialog=true`

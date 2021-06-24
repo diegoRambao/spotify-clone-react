@@ -3,7 +3,7 @@ import { MdFavorite } from 'react-icons/md'
 import { Table, TableHead, TableRow, TableBody } from './style'
 import { colors } from 'consts/styles'
 
-export function ListOfSongs ({ songs }) {
+export function ListOfSongs ({ songs, search }) {
   return (
     <Table>
       <TableHead>
@@ -11,7 +11,7 @@ export function ListOfSongs ({ songs }) {
           <th>#</th>
           <th>Titulo</th>
           <th>Album</th>
-          <th>Fecha incorporación</th>
+          {!search && <th>Fecha incorporación</th>}
           <th>Duración</th>
         </TableRow>
       </TableHead>
@@ -27,7 +27,7 @@ export function ListOfSongs ({ songs }) {
               />
             </td>
             <td className='album'>{song.album}</td>
-            <td className='date'>{song.addedAt}</td>
+            {!search && <td className='date'>{song.addedAt}</td>}
             <td className='duration'>
               <MdFavorite color={colors.primary} width='2em' height='2em' />
               <span style={{ marginLeft: '.5rem' }}>{song.duration}</span>

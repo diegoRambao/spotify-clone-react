@@ -10,7 +10,21 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background: ${colors.darkGray};
-    color: ${colors.white}
+    color: ${colors.white};
+
+    &::-webkit-scrollbar {
+      width: 0.9rem;
+      max-height: none;
+      min-height: 30px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: ${colors.black};
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #ffffff4d;
+    }
   }
 
   .container {
@@ -21,5 +35,37 @@ export const GlobalStyle = createGlobalStyle`
     @media screen and (min-width: 768px) {
       width: 80%;
     }
+  }
+
+  .animate__fadeIn {
+    animation: fadeIn 800ms;
+    -webkit-animation: fadeIn 800ms;
+    -moz-animation: fadeIn 800ms;
+    -o-animation: fadeIn 800ms;
+    -ms-animation: fadeIn 800ms;
+  }
+  @keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+
+  @-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+
+  @-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+
+  @-o-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+
+  @-ms-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
   }
 `

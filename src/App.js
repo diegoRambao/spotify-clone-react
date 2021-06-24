@@ -5,6 +5,7 @@ import { PlayList } from 'components/pages/PlayList'
 import { PlayLists } from 'components/pages/PlayLists'
 import { PrivateRoute } from 'routes/PrivateRoute'
 import { PublicRoute } from 'routes/PublicRoute'
+import { Search } from 'components/pages/Search'
 
 export function App () {
   return (
@@ -12,6 +13,7 @@ export function App () {
       <Router>
         <Switch>
           <PrivateRoute exact path='/favorites' component={Favorites} />
+          <PrivateRoute exact path='/search' component={Search} />
           <PrivateRoute exact path='/playlist/:id' component={PlayList} />
           <PrivateRoute exact path='/playlists' component={PlayLists} />
           <PublicRoute restricted exact path='/' component={Login} />
