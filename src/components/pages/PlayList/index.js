@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Catalogue } from 'components/templates/Catalogue'
-import { getPlaylistById, getSongsByPlaylistId } from 'client'
+import { getPlaylistById, getSongsByPlaylistId } from 'services/playlist'
 import { useSelector, useDispatch } from 'react-redux'
 import playlistEmpty from 'assets/images/playlist-empty.png'
 import { AppLayout } from 'components/templates/AppLayout'

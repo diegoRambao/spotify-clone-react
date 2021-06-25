@@ -5,7 +5,8 @@ import { ContainerLogin } from './style'
 import { useUser } from 'hooks/useUser'
 
 import { Logo } from 'icons/Logo'
-import { loginUrl, getTokenFromUrl } from 'client'
+import { getTokenFromUrl } from 'utils'
+import { loginUrl } from 'client'
 
 export function Login () {
   const { setToken } = useUser()

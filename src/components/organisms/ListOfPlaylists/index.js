@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import { List, ListItem } from './style'
 import { CardPlaylist } from 'components/molecules/CardPlaylist'
-import { getPlaylists } from 'client'
+import { getPlaylists } from 'services/playlist'
 import { SetAllPlaylist } from 'store/actions/playlist'
 import { Button } from 'components/atoms/Button'
 import { Box } from 'components/atoms/Box'

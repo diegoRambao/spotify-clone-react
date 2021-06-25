@@ -26,6 +26,17 @@ export const extractBasicInformationSong = song => {
   }
 }
 
+export const getTokenFromUrl = () => {
+  return window.location.hash
+    .substring(1)
+    .split('&')
+    .reduce((initial, item) => {
+      const parts = item.split('=')
+      initial[parts[0]] = decodeURIComponent(parts[1])
+      return initial
+    }, {})
+}
+
 export const formatterSongs = (items) => items.length > 0
   ? items.map((item) => formatterSong(item))
   : []
