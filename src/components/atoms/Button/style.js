@@ -3,7 +3,7 @@ import { colors } from 'consts/styles'
 
 export const ButtonContainer = styled.button`
     border-radius: 20px;
-    background: ${colors.primary};
+    background: ${props => props.bgcolor ? props.bgcolor : colors.primary};
     padding: 10px 22px;
     color: ${colors.white};
     border: none;

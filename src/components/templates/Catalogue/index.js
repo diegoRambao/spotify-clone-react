@@ -11,7 +11,7 @@ import {
 import { formatterSongs } from 'utils'
 import { Skeleton } from 'components/atoms'
 
-export function Catalogue ({ imgMain, title, lists = [], handleViewMore, hasMore, total = 0 }) {
+export function Catalogue ({ imgMain, title, lists = [], handleViewMore, hasMore, total = 0, favorite }) {
   const songs = formatterSongs(lists)
   return (
     <Main>
@@ -31,7 +31,12 @@ export function Catalogue ({ imgMain, title, lists = [], handleViewMore, hasMore
         </HeaderText>
       </HeaderContainer>
       <Box mt='2rem'>
-        <ListOfSongs songs={songs} handleViewMore={handleViewMore} hasMore={hasMore} />
+        <ListOfSongs
+          songs={songs}
+          handleViewMore={handleViewMore}
+          hasMore={hasMore}
+          favorite={favorite}
+        />
       </Box>
     </Main>
   )

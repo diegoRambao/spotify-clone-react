@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 export function Cover ({ img, title, subtitle }) {
   return (
     <Container>
-      <Img src={img} alt={title} className='animate__fadeIn' />
+      <Img src={img} alt={title} className='animate__fadeIn' effect='opacity' />
       <div>
         <Title>{title}</Title>
         <SubTitle>{subtitle}</SubTitle>

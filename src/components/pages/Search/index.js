@@ -3,15 +3,17 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { AppLayout } from 'components/templates/AppLayout'
 import { SearchInput, Box } from 'components/atoms'
-import { getSearchSongs } from 'client'
+import { Snackbar } from 'components/molecules/Snackbar'
+import { getSearchSongs, addFavorite } from 'client'
 import { useUser } from 'hooks/useUser'
 import { formatterSongsSearch } from 'utils'
 import { setSongsSearch } from 'store/actions/search'
-import { ListOfSongs } from 'components/organisms/ListOfSongs'
+import { ListOfSearch } from 'components/organisms/ListOfSearch'
 import { ItemRowSkeleton } from 'components/molecules/ItemRowSkeleton'
 
 export function Search () {
   const [isLoading, setIsLoading] = useState(false)
+  const [show, setShow] = useState(false)
   const dispatch = useDispatch()
   const { songsSearch } = useSelector(state => state.search)
   const { token } = useUser()
@@ -25,9 +27,21 @@ export function Search () {
         dispatch(setSongsSearch(songsFormatter))
         setIsLoading(false)
       }).catch(error => {
-        console.log(error)
+        console.error(error)
       })
     }
+  }
+
+  const handleClose = () => {
+    setShow(false)
+  }
+
+  const onAddFavorite = (id) => {
+    addFavorite({ token, id }).then(({ status }) => {
+      if (status === 200) {
+        setShow(true)
+      }
+    })
   }
 
   return (
@@ -41,8 +55,20 @@ export function Search () {
               <ItemRowSkeleton />
             </Box>}
 
+          <Snackbar
+            severity='success'
+            open={show}
+            onClose={handleClose}
+          >
+            Se agregó a Tus me gustas
+          </Snackbar>
+
           <Box mt='3rem'>
-            {(songsSearch.length > 0 && !isLoading) && <ListOfSongs songs={songsSearch} search />}
+            {(songsSearch.length > 0 && !isLoading) &&
+              <ListOfSearch
+                onAddFavorite={onAddFavorite}
+                songs={songsSearch}
+              />}
           </Box>
         </Box>
       </section>

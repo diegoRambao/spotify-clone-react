@@ -6,15 +6,20 @@ const clientId = '799707c833e443839c79fd8b27349402'
 const apiUrl = 'https://api.spotify.com/v1'
 
 const scopes = [
-  'user-read-currently-playing',
   'user-read-recently-played',
-  'user-read-playback-state',
-  'user-top-read',
-  'user-read-private',
-  'user-read-email',
-  'user-modify-playback-state',
+  'user-library-modify',
   'user-library-read',
-  'playlist-read-private'
+  'playlist-read-private',
+  'playlist-modify-public',
+  'playlist-modify-private',
+  'playlist-read-collaborative',
+  'user-read-email',
+  'user-read-private',
+  'user-read-playback-state',
+  'user-modify-playback-state',
+  'user-read-currently-playing',
+  'user-follow-read',
+  'user-follow-modify'
 ]
 
 export const getTokenFromUrl = () => {
@@ -30,6 +35,9 @@ export const getTokenFromUrl = () => {
 
 export const getFavoriteSongs = ({ token, limit = 20, offset }) => {
   return axios.get(`${apiUrl}/me/tracks?limit=${limit}&offset=${offset}`, { headers: { Authorization: `Bearer ${token}` } })
+}
+export const addFavorite = ({ token, id }) => {
+  return axios.put(`${apiUrl}/me/tracks?ids=${id}`, {}, { headers: { Authorization: `Bearer ${token}` } })
 }
 
 export const getPlaylists = ({ token, limit = 20, offset }) => {

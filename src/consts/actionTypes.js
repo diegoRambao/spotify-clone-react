@@ -3,6 +3,7 @@ export const RemoveToken = '@user/removeToken'
 export const SetUser = '@user/setUser'
 
 export const SetAllFavorite = '@favorites/SetAllFavorite'
+export const ResetAllFavorite = '@favorites/ResetAllFavorite'
 
 export const SetAllPlaylist = '@playlist/SetAllPlayList'
 export const SetPlaylist = '@playlist/SetPlaylist'

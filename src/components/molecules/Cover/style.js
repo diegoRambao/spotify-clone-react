@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import 'react-lazy-load-image-component/src/effects/blur.css'
 
 export const Container = styled.div`
     display: flex;
@@ -6,7 +8,7 @@ export const Container = styled.div`
     gap: 1rem;
 `
 
-export const Img = styled.img`
+export const Img = styled(LazyLoadImage)`
     width:50px;
     height: 50px;
     object-fit: contain;

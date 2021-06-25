@@ -7,7 +7,7 @@ import { Button } from 'components/atoms/Button'
 import { colors } from 'consts/styles'
 import { ItemRowSkeleton } from 'components/molecules/ItemRowSkeleton'
 
-export function ListOfSongs ({ songs, search, hasMore, handleViewMore }) {
+export function ListOfSongs ({ songs, search, hasMore, handleViewMore, favorite }) {
   return (
     <>
       {songs.length === 0 && <ItemRowSkeleton />}
@@ -37,7 +37,7 @@ export function ListOfSongs ({ songs, search, hasMore, handleViewMore }) {
                   <td className='album'>{song.album}</td>
                   {!search && <td className='date'>{song.addedAt}</td>}
                   <td className='duration'>
-                    <MdFavorite color={colors.primary} width='2em' height='2em' />
+                    {favorite && <MdFavorite color={colors.primary} width='2em' height='2em' />}
                     <span style={{ marginLeft: '.5rem' }}>{song.duration}</span>
                   </td>
                 </TableRow>
