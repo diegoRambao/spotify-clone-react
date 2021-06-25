@@ -47,32 +47,29 @@ export function Search () {
 
   return (
     <AppLayout>
-      <section className='container'>
-        <Box pt='1.8rem'>
-          <SearchInput onSubmit={onSubmit} />
-          {(isLoading && songsSearch.length > 0) &&
-            <Box mt='1rem'>
-              <ItemRowSkeleton />
-              <ItemRowSkeleton />
-            </Box>}
+      <Box pt='1.8rem'>
+        <SearchInput onSubmit={onSubmit} />
+        {(isLoading && songsSearch.length > 0) &&
+          <Box mt='1rem'>
+            <ItemRowSkeleton />
+            <ItemRowSkeleton />
+          </Box>}
 
-          <Snackbar
-            severity='success'
-            open={show}
-            onClose={handleClose}
-          >
-            Se agregó a Tus me gustas
-          </Snackbar>
-
-          <Box mt='3rem'>
-            {(songsSearch.length > 0 && !isLoading) &&
-              <ListOfSearch
-                onAddFavorite={onAddFavorite}
-                songs={songsSearch}
-              />}
-          </Box>
+        <Box mt='3rem'>
+          {(songsSearch.length > 0 && !isLoading) &&
+            <ListOfSearch
+              onAddFavorite={onAddFavorite}
+              songs={songsSearch}
+            />}
         </Box>
-      </section>
+      </Box>
+      <Snackbar
+        severity='success'
+        open={show}
+        onClose={handleClose}
+      >
+        Se agregó a Tus me gustas
+      </Snackbar>
     </AppLayout>
   )
 }

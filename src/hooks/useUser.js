@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { SetToken, RemoveToken, SetUser } from 'store/actions/user'
 import { useHistory } from 'react-router-dom'
+import { SetToken, RemoveToken, SetUser } from 'store/actions/user'
 import { getCurrentUser as getCurrentUserService } from 'services/user'
 
 export function useUser () {

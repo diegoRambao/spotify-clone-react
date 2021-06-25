@@ -34,7 +34,6 @@ export function PlayList () {
           setHasMore(false)
           return
         }
-        console.log('Canciones')
         dispatch(SetSongsPlaylist(tracks))
         dispatch(SetTotalSongsPlaylist(total))
       }).catch(error => {

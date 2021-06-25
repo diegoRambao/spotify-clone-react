@@ -1,5 +1,5 @@
 // import { useState, useEffect } from 'react'
-import { Container, Button } from './style'
+import { Container, Button, ContainerWith } from './style'
 import { Box } from 'components/atoms'
 import { CgClose } from 'react-icons/cg'
 import { BsCheckCircle } from 'react-icons/bs'
@@ -24,15 +24,17 @@ export function Snackbar ({ open, onClose, children, severity }) {
 
   return (
     open && (
-      <Container severity={severity}>
-        <Box className='d-flex align-items-center'>
-          {severity && iconsSnackSeverity[severity]}
-          <p>{children}</p>
-        </Box>
-        <Button onClick={onClose}>
-          <CgClose />
-        </Button>
-      </Container>
+      <ContainerWith>
+        <Container severity={severity}>
+          <Box className='d-flex align-items-center'>
+            {severity && iconsSnackSeverity[severity]}
+            <p>{children}</p>
+          </Box>
+          <Button onClick={onClose}>
+            <CgClose />
+          </Button>
+        </Container>
+      </ContainerWith>
     )
   )
 }

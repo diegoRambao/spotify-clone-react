@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Favorites } from 'components/pages/Favorites'
 import { Login } from 'components/pages/Login'
 import { PlayList } from 'components/pages/PlayList'
@@ -6,6 +6,7 @@ import { PlayLists } from 'components/pages/PlayLists'
 import { PrivateRoute } from 'routes/PrivateRoute'
 import { PublicRoute } from 'routes/PublicRoute'
 import { Search } from 'components/pages/Search'
+import { NotFound } from 'components/pages/NotFound'
 
 export function App () {
   return (
@@ -18,6 +19,7 @@ export function App () {
           <PrivateRoute exact path='/search' component={Search} />
           <PublicRoute restricted exact path='/' component={Login} />
           <PublicRoute restricted exact path='/login' component={Login} />
+          <Route component={NotFound} />
         </Switch>
       </Router>
     </>

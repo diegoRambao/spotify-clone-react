@@ -6,12 +6,17 @@ const fadein = keyframes`
     100% {opacity:1;}
 `
 
+export const ContainerWith = styled.div`
+    position: absolute;
+    width:100%;
+`
+
 export const Container = styled.div`
     position: fixed;
-    z-index: 1000;
-    bottom: 1rem;
+    z-index: 1900;
+    bottom: 1.6rem;
     left: 50%;
-    translate: translateX(-50%);
+    transform: translateX(-50%);
     height: auto;
     padding: 0.625rem 1rem;
     border-radius: 0.75rem;
