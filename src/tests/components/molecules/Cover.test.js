@@ -2,7 +2,7 @@ import { shallow, mount } from 'enzyme'
 import { Cover } from 'components/molecules/Cover'
 
 describe('<Cover />', () => {
-  const url = 'exmaple.png'
+  const url = 'https://example.png'
   const title = 'Titulo'
   const subtitle = 'Subtitle'
 

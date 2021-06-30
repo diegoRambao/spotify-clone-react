@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CardPlaylist> render content 1`] = `
+<Styled(Link)
+  className="animate__fadeIn"
+  to="/playlist/1234567890"
+>
+  <styled.div>
+    <styled.img
+      alt="Playlist 1"
+      loading="lazy"
+      src="https://example.png"
+    />
+    <styled.div>
+      <styled.h4>
+        Playlist 1
+      </styled.h4>
+      <styled.h6>
+        67
+         canciones
+      </styled.h6>
+    </styled.div>
+  </styled.div>
+</Styled(Link)>
+`;

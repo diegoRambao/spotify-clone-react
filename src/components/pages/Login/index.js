@@ -7,6 +7,7 @@ import { useUser } from 'hooks/useUser'
 import { Logo } from 'icons/Logo'
 import { getTokenFromUrl } from 'utils'
 import { loginUrl } from 'client'
+// import * as authorizationService from 'services/authorization'
 
 export function Login () {
   const { setToken } = useUser()
@@ -14,10 +15,10 @@ export function Login () {
   useEffect(() => {
     const hash = getTokenFromUrl()
     window.location.hash = ''
-    const _token = hash.access_token
+    const code = hash.access_token
 
-    if (_token) {
-      setToken({ token: _token })
+    if (code) {
+      setToken({ token: code })
     }
   }, []) // eslint-disable-line
 

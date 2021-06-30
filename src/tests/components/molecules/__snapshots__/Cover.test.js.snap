@@ -2,9 +2,11 @@
 
 exports[`<Cover /> render content 1`] = `
 <styled.div>
-  <styled.img
+  <Styled(t)
     alt="Titulo"
-    src="exmaple.png"
+    className="animate__fadeIn"
+    effect="opacity"
+    src="https://example.png"
   />
   <div>
     <styled.h3>

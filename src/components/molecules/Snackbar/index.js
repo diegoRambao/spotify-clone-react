@@ -1,4 +1,3 @@
-// import { useState, useEffect } from 'react'
 import { Container, Button, ContainerWith } from './style'
 import { Box } from 'components/atoms'
 import { CgClose } from 'react-icons/cg'
@@ -15,13 +14,6 @@ const iconsSnackSeverity = {
 }
 
 export function Snackbar ({ open, onClose, children, severity }) {
-//   console.log(open)
-//   const [show, setShow] = useState(open)
-
-  //   useEffect(() => {
-  //     setShow(open)
-  //   }, [open])
-
   return (
     open && (
       <ContainerWith>

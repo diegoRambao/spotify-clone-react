@@ -3,7 +3,7 @@ import { ButtonLink } from 'components/atoms/ButtonLink'
 
 describe('<ButtonLink />', () => {
   const text = 'Text example'
-  const url = ''
+  const url = 'https://www.google.com'
   const wrapper = mount(<ButtonLink href={url}>{text}</ButtonLink>)
 
   test('render content', () => {

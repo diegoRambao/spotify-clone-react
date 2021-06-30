@@ -9,7 +9,7 @@ export function CardPlaylist ({ playlist }) {
         <CardImg
           loading='lazy'
           src={images[0]?.url || playlistEmpty}
-          alt='Poster de Karmadome'
+          alt={name}
         />
         <CardBody>
           <CardTitle>{name}</CardTitle>
