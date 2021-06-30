@@ -22,7 +22,7 @@ export function Search () {
   const onSubmit = (query) => {
     if (query) {
       setIsLoading(true)
-      getSearchSongs({ token, query }).then(({ data }) => {
+      getSearchSongs({ token: token.access_token, query }).then(({ data }) => {
         const { tracks: { items } } = data
         const songsFormatter = formatterSongsSearch(items)
         dispatch(setSongsSearch(songsFormatter))
@@ -38,7 +38,7 @@ export function Search () {
   }
 
   const onAddFavorite = (id) => {
-    addFavorite({ token, id }).then(({ status }) => {
+    addFavorite({ token: token.access_token, id }).then(({ status }) => {
       if (status === 200) {
         setShow(true)
       }

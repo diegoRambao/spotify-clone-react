@@ -19,7 +19,7 @@ export function useFavorite () {
   }, [token, dispatch]) // eslint-disable-line
 
   const fetchMoreData = () => {
-    favoriteService.getFavoriteSongs({ token, offset: songsFavorites.length }).then(({ data }) => {
+    favoriteService.getFavoriteSongs({ token: token.access_token, offset: songsFavorites.length }).then(({ data }) => {
       const { items, total } = data
       setTotal(total)
       if (items.length === 0) {

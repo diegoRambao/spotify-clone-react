@@ -18,7 +18,7 @@ export function ListOfPlaylists () {
   }, []) // eslint-disable-line
 
   const fetchMoreData = () => {
-    getPlaylists({ token, offset: playlists.length }).then(({ data: { items } }) => {
+    getPlaylists({ token: token.access_token, offset: playlists.length }).then(({ data: { items } }) => {
       if (items.length === 0) {
         setHasMore(false)
         return

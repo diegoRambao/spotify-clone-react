@@ -10,8 +10,8 @@ export function useUser () {
 
   const setToken = ({ token }) => {
     dispatch(SetToken(token))
-    getCurrentUser({ token })
-    window.localStorage.setItem('token', token)
+    getCurrentUser({ token: token.access_token })
+    window.localStorage.setItem('token', JSON.stringify(token))
     history.replace('playlists')
   }
 

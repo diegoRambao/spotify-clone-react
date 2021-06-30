@@ -2,9 +2,10 @@ import { SetToken, RemoveToken, SetUser } from 'consts/actionTypes'
 import { parseStringToJson } from 'utils'
 
 const currentUser = parseStringToJson(window.localStorage.getItem('currentUser'))
+const token = parseStringToJson(window.localStorage.getItem('token'))
 
 const initialState = {
-  token: window.localStorage.getItem('token'),
+  token,
   user: currentUser
 }
 

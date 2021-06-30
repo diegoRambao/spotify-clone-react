@@ -17,7 +17,7 @@ export function PlayList () {
 
   useEffect(() => {
     setIsLoading(true)
-    getPlaylistById({ token, id }).then(({ data }) => {
+    getPlaylistById({ token: token.access_token, id }).then(({ data }) => {
       const playlist = { ...data, tracks: [], total: 0 }
       dispatch(SetPlaylist(playlist))
       fetchMoreSong()
@@ -27,7 +27,7 @@ export function PlayList () {
 
   const fetchMoreSong = () => {
     const offset = playlist?.tracks?.length || 0
-    getSongsByPlaylistId({ token, playlistId: id, offset })
+    getSongsByPlaylistId({ token: token.access_token, playlistId: id, offset })
       .then(({ data }) => {
         const { items: tracks, total } = data
         if (tracks.length === 0) {
