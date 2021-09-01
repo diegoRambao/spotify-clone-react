@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { SetToken, RemoveToken, SetUser } from 'store/actions/user'
 import { getCurrentUser as getCurrentUserService } from 'services/user'
+import * as authorizationService from 'services/authorization'
 
 export function useUser () {
   const dispatch = useDispatch()
@@ -13,6 +14,15 @@ export function useUser () {
     getCurrentUser({ token: token.access_token })
     window.localStorage.setItem('token', JSON.stringify(token))
     history.replace('playlists')
+  }
+
+  const refreshToken = ({ refreshToken }) => {
+    console.log(refreshToken)
+    authorizationService.getRefreshToken({ refreshToken })
+      .then((res) => {
+        console.log(res)
+        setToken({ token: res })
+      })
   }
 
   const getCurrentUser = ({ token }) => {
@@ -34,6 +44,7 @@ export function useUser () {
     token,
     logout,
     setToken,
-    user
+    user,
+    refreshToken
   }
 }

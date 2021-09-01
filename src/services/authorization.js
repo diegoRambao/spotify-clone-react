@@ -49,7 +49,11 @@ export const getRefreshToken = async ({ refreshToken }) => {
       }
     })
 
-    return await response.json()
+    const res = await response.json()
+    return {
+      ...res,
+      refresh_token: res.access_token
+    }
   } catch (err) {
     console.erorr(err)
   }
